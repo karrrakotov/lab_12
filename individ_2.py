@@ -14,7 +14,6 @@ class Triad:
         self.first = int(first)
         self.second = int(second)
         self.third = int(third)
-
         self.sum()
 
     # Ввод тройки чисел

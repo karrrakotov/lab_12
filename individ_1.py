@@ -14,7 +14,6 @@ class Triangle:
 
     def __init__(self, side=0):
         side = float(side)
-
         self.__first = side
         self.__second = side
         self.__third = side
@@ -49,11 +48,11 @@ class Triangle:
         self.__second = abs(parts[1])
         self.__third = abs(parts[2])
 
-    # NEW - вывести числа на экран
+    # Вывести числа на экран
     def display(self):
         print(f"{self.__first}")
 
-    # NEW - Вычисление периметра треугольника
+    # Вычисление периметра треугольника
     def add(self, rhs):
         if isinstance(rhs, Triangle):
             global perimeter
@@ -64,7 +63,7 @@ class Triangle:
         else:
             raise ValueError()
 
-    # NEW - Вычисление площади треугольника
+    # Вычисление площади треугольника
     def sub(self, rhs):
         if isinstance(rhs, Triangle):
             p = perimeter / 2
@@ -75,7 +74,7 @@ class Triangle:
         else:
             raise ValueError()
 
-    # NEW - Вычисление высоты проведенной к стороне A
+    # Вычисление высоты проведенной к стороне A
     def height_one(self, rhs):
         if isinstance(rhs, Triangle):
             p = perimeter / 2
@@ -86,7 +85,7 @@ class Triangle:
         else:
             raise ValueError()
 
-    # NEW - Вычисление высоты проведенной к стороне B
+    # Вычисление высоты проведенной к стороне B
     def height_two(self, rhs):
         if isinstance(rhs, Triangle):
             p = perimeter / 2
@@ -98,7 +97,7 @@ class Triangle:
         else:
             raise ValueError()
 
-    # NEW - Вычисление высоты проведенной к стороне C
+    # Вычисление высоты проведенной к стороне C
     def height_three(self, rhs):
         if isinstance(rhs, Triangle):
             p = perimeter / 2
@@ -110,7 +109,7 @@ class Triangle:
         else:
             raise ValueError()
 
-    # NEW - Вычисление градусов углов
+    # Вычисление градусов углов
     def corner_one(self, rhs):
         if isinstance(rhs, Triangle):
             first_corner = math.acos(
