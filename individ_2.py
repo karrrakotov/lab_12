@@ -11,7 +11,6 @@ import math
 class Triad:
 
     def __init__(self, first=0, second=0, third=0):
-        self.summa = self.first + self.second + self.third
         self.first = int(first)
         self.second = int(second)
         self.third = int(third)
@@ -32,7 +31,7 @@ class Triad:
 
     # Вычисление суммы чисел
     def sum(self):
-        pass
+        self.summa = self.first + self.second + self.third
 
     # Вывод суммы на экран
     def display(self):
@@ -74,19 +73,16 @@ class Triangle(Triad):
 
     # Вычисление градусов углов в треугольнике
     def corner_one(self):
-        first_corner = math.acos(
-            ((self.side_two ** 2) + (self.side_three ** 2) - (self.side_one ** 2)) / (
-                        2 * self.side_three * self.side_two))
+        a = self.side_one
+        b = self.side_two
+        c = self.side_three
+        first_corner = math.acos(((b ** 2) + (c ** 2) - (a ** 2)) / (2 * c * b))
         self.first_degrees = math.degrees(first_corner)
 
-        second_corner = math.acos(
-            ((self.side_one ** 2) + (self.side_two ** 2) - (self.side_three ** 2)) / (
-                        2 * self.side_one * self.side_two))
+        second_corner = math.acos(((a ** 2) + (b ** 2) - (c ** 2)) / (2 * a * b))
         self.second_degrees = math.degrees(second_corner)
 
-        third_corner = math.acos(
-            ((self.side_one ** 2) + (self.side_three ** 2) - (self.side_two ** 2)) / (
-                        2 * self.side_one * self.side_three))
+        third_corner = math.acos(((a ** 2) + (c ** 2) - (b ** 2)) / (2 * a * c))
         self.third_degrees = math.degrees(third_corner)
 
     # Вывод значений

@@ -113,16 +113,16 @@ class Triangle:
     # Вычисление градусов углов
     def corner_one(self, rhs):
         if isinstance(rhs, Triangle):
-            first_corner = math.acos(
-                ((self.second ** 2) + (self.third ** 2) - (self.first ** 2)) / (2 * self.third * self.second))
+            a = self.first
+            b = self.second
+            c = self.third
+            first_corner = math.acos(((b ** 2) + (c ** 2) - (a ** 2)) / (2 * c * b))
             first_degrees = math.degrees(first_corner)
 
-            second_corner = math.acos(
-                ((self.first ** 2) + (self.second ** 2) - (self.third ** 2)) / (2 * self.first * self.second))
+            second_corner = math.acos(((a ** 2) + (b ** 2) - (c ** 2)) / (2 * a * b))
             second_degrees = math.degrees(second_corner)
 
-            third_corner = math.acos(
-                ((self.first ** 2) + (self.third ** 2) - (self.second ** 2)) / (2 * self.first * self.third))
+            third_corner = math.acos(((a ** 2) + (c ** 2) - (b ** 2)) / (2 * a * c))
             third_degrees = math.degrees(third_corner)
 
             print(f"Первый угол равен: {round(first_degrees)}")
