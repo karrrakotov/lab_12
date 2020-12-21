@@ -10,7 +10,7 @@ import math
 
 class Triad:
 
-    def __init__(self, first=0, second=0, third=0, summa=0):
+    def __init__(self, first=0, second=0, third=0):
         self.first = int(first)
         self.second = int(second)
         self.third = int(third)
