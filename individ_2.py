@@ -33,11 +33,12 @@ class Triad:
     def sum(self):
         self.summa = self.first + self.second + self.third
 
-    # NEW - вывести числа на экран
+    # Вывод суммы на экран
     def display(self):
         print(f"Сумма чисел равна: {self.summa}")
 
 
+# Создание нового класса
 class Triangle(Triad):
     def __init__(self, side_one=0, side_two=0, side_three=0):
         super(Triangle, self).__init__()
@@ -45,6 +46,7 @@ class Triangle(Triad):
         self.side_two = int(side_two)
         self.side_three = int(side_three)
 
+    # Ввод сторон треугольника
     def read(self):
         side_one = input('Введите первую сторону треугольника: ')
         side_two = input('Введите вторую сторону треугольника: ')
@@ -58,6 +60,7 @@ class Triangle(Triad):
         self.square()
         self.corner_one()
 
+    # Вычисление периметра треугольника
     def add(self):
         global perimeter
         perimeter = self.side_one + self.side_two + self.side_three
@@ -85,7 +88,7 @@ class Triangle(Triad):
                         2 * self.side_one * self.side_three))
         self.third_degrees = math.degrees(third_corner)
 
-    # Вывести значения на экран
+    # Вывод значений
     def display(self):
         print(f"Первый угол в треугольнике равен: {self.first_degrees}")
         print(f"Второй угол в треугольнике равен: {self.second_degrees}")

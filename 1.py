@@ -60,7 +60,7 @@ class Triangle:
         p = perimeter / 2
         self.h3 = 2 * math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third)) / self.third
 
-    # Вычисление градусов углов
+    # Вычисление градусов углов по формуле Герона
     def corner_one(self):
         first_corner = math.acos(
             ((self.second ** 2) + (self.third ** 2) - (self.first ** 2)) / (2 * self.third * self.second))
