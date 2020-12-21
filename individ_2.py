@@ -11,9 +11,11 @@ import math
 class Triad:
 
     def __init__(self, first=0, second=0, third=0):
+        self.summa = self.first + self.second + self.third
         self.first = int(first)
         self.second = int(second)
         self.third = int(third)
+
         self.sum()
 
     # Ввод тройки чисел
@@ -30,7 +32,7 @@ class Triad:
 
     # Вычисление суммы чисел
     def sum(self):
-        self.summa = self.first + self.second + self.third
+        pass
 
     # Вывод суммы на экран
     def display(self):
