@@ -34,7 +34,7 @@ class Triangle:
     # Ввод сторон треугольника
     def read(self, prompt=None):
         line = input() if prompt is None else input(prompt)
-        parts = list(map(int, line.split()))
+        parts = list(map(float, line.split()))
         if len(parts) != 3:
             print("Неверный размер списка", file=sys.stderr)
             exit(1)
@@ -56,18 +56,17 @@ class Triangle:
     # Вычисление периметра треугольника
     def add(self, rhs):
         if isinstance(rhs, Triangle):
-            global perimeter
-            perimeter = self.first + self.second + self.third
+            self.perimeter = self.first + self.second + self.third
             print(f"Периметр треугольника равен: ")
 
-            return Triangle(perimeter)
+            return Triangle(self.perimeter)
         else:
             raise ValueError()
 
     # Вычисление площади треугольника
     def sub(self, rhs):
         if isinstance(rhs, Triangle):
-            p = perimeter / 2
+            p = self.perimeter / 2
             square = math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))
             print(f"Площадь треугольника равна: ")
 
@@ -78,7 +77,7 @@ class Triangle:
     # Вычисление высоты проведенной к стороне A
     def height_one(self, rhs):
         if isinstance(rhs, Triangle):
-            p = perimeter / 2
+            p = self.perimeter / 2
             h1 = 2 * math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third)) / self.first
             print(f"Высота  проведенная к стороне A равна: ")
 
@@ -89,7 +88,7 @@ class Triangle:
     # Вычисление высоты проведенной к стороне B
     def height_two(self, rhs):
         if isinstance(rhs, Triangle):
-            p = perimeter / 2
+            p = self.perimeter / 2
             h2 = 2 * math.sqrt(
                 p * (p - self.first) * (p - self.second) * (p - self.third)) / self.second
             print(f"Высота  проведенная к стороне B равна: ")
@@ -101,7 +100,7 @@ class Triangle:
     # Вычисление высоты проведенной к стороне C
     def height_three(self, rhs):
         if isinstance(rhs, Triangle):
-            p = perimeter / 2
+            p = self.perimeter / 2
             h3 = 2 * math.sqrt(
                 p * (p - self.first) * (p - self.second) * (p - self.third)) / self.third
             print(f"Высота  проведенная к стороне C равна: ")
