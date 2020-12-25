@@ -11,9 +11,9 @@ import math
 class Triad:
 
     def __init__(self, first=0, second=0, third=0):
-        self.first = int(first)
-        self.second = int(second)
-        self.third = int(third)
+        self.first = float(first)
+        self.second = float(second)
+        self.third = float(third)
 
         self.sum()
 
@@ -23,9 +23,9 @@ class Triad:
         second = input('Введите второе число: ')
         third = input('Введите третье число: ')
 
-        self.first = int(first)
-        self.second = int(second)
-        self.third = int(third)
+        self.first = float(first)
+        self.second = float(second)
+        self.third = float(third)
 
         self.sum()
 
@@ -42,9 +42,9 @@ class Triad:
 class Triangle(Triad):
     def __init__(self, side_one=0, side_two=0, side_three=0):
         super(Triangle, self).__init__()
-        self.side_one = int(side_one)
-        self.side_two = int(side_two)
-        self.side_three = int(side_three)
+        self.side_one = float(side_one)
+        self.side_two = float(side_two)
+        self.side_three = float(side_three)
 
     # Ввод сторон треугольника
     def read(self):
@@ -52,9 +52,9 @@ class Triangle(Triad):
         side_two = input('Введите вторую сторону треугольника: ')
         side_three = input('Введите третью сторону треугольника: ')
 
-        self.side_one = int(side_one)
-        self.side_two = int(side_two)
-        self.side_three = int(side_three)
+        self.side_one = float(side_one)
+        self.side_two = float(side_two)
+        self.side_three = float(side_three)
 
         self.add()
         self.square()
@@ -62,12 +62,11 @@ class Triangle(Triad):
 
     # Вычисление периметра треугольника
     def add(self):
-        global perimeter
-        perimeter = self.side_one + self.side_two + self.side_three
+        self.perimeter = self.side_one + self.side_two + self.side_three
 
     # Вычисление площади треугольника по формуле Герона
     def square(self):
-        p = perimeter / 2
+        p = self.perimeter / 2
         s = math.sqrt(p * (p - self.side_one) * (p - self.side_two) * (p - self.side_three))
         print(f"Площадь треугольника равна: {s}")
 
