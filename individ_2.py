@@ -56,13 +56,14 @@ class Triangle(Triad):
         self.side_two = float(side_two)
         self.side_three = float(side_three)
 
-        self.add()
-        self.square()
-        self.corner_one()
+        #self.add()
+        #self.square()
+        #self.corner_one()
 
     # Вычисление периметра треугольника
-    def add(self):
+    def per(self):
         self.perimeter = self.side_one + self.side_two + self.side_three
+
 
     # Вычисление площади треугольника по формуле Герона
     def square(self):

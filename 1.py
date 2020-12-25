@@ -28,37 +28,30 @@ class Triangle:
         self.second = int(second)
         self.third = int(third)
 
-        self.per()
-        self.square()
-        self.height_one()
-        self.height_two()
-        self.height_three()
-        self.corner_one()
-
     # Вычисление периметра треугольника
     def per(self):
-        global perimeter
-        perimeter = self.first + self.second + self.third
+        return self.first + self.second + self.third
 
     # Вычисление площади треугольника
     def square(self):
-        p = perimeter / 2
-        self.s = math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))
+        self.perimeter = self.first + self.second + self.third
+        p = self.perimeter / 2
+        return math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))
 
     # Вычисление высоты проведенной к стороне A
     def height_one(self):
-        p = perimeter / 2
-        self.h1 = 2 * math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third)) / self.first
+        p = self.perimeter / 2
+        return 2 * math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third)) / self.first
 
     # Вычисление высоты проведенной к стороне B
     def height_two(self):
-        p = perimeter / 2
-        self.h2 = 2 * math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third)) / self.second
+        p = self.perimeter / 2
+        return 2 * math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third)) / self.second
 
     # Вычисление высоты проведенной к стороне C
     def height_three(self):
-        p = perimeter / 2
-        self.h3 = 2 * math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third)) / self.third
+        p = self.perimeter / 2
+        return 2 * math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third)) / self.third
 
     # Вычисление градусов углов по формуле Герона
     def corner_one(self):
@@ -76,28 +69,22 @@ class Triangle:
 
         if self.f_d == 90 or self.s_d == 90 or self.th_d == 90:
             print("Треугольник прямоугольный")
-        elif self.f_d == self.s_d or  self.f_d == self.th_d or self.s_d == self.th_d:
+        elif self.f_d == self.s_d or self.f_d == self.th_d or self.s_d == self.th_d:
             print("Треугольник равнобедренный")
         elif  self.f_d == self.s_d == self.th_d:
             print("Треугольник равносторонний")
         else:
             print("Обычный треугольник")
 
-        # Вывести значения на экран
-    def display(self):
-        print(f"Периметр треугольника равен: {perimeter}")
-        print(f"Площадь треугольника равна: {self.s}")
-        print(f"Высота  проведенная к стороне A равна: {self.h1}")
-        print(f"Высота  проведенная к стороне B равна: {self.h2}")
-        print(f"Высота  проведенная к стороне C равна: {self.h3}")
-        print(f"Первый угол в треугольнике равен: {round(self.f_d)} градусов")
-        print(f"Второй угол в треугольнике равен: {round(self.s_d)} градусов")
-        print(f"Третий угол в треугольнике равен: {round(self.th_d)} градусов")
-
 
 if __name__ == '__main__':
     r1 = Triangle()
     r1.read()
-    r1.display()
+
+    print(r1.per())
+    print(r1.square())
+    print(r1.height_one())
+    print(r1.height_two())
+    print(r1.height_three())
 
 
