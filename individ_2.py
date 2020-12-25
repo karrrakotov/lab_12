@@ -27,15 +27,9 @@ class Triad:
         self.second = float(second)
         self.third = float(third)
 
-        self.sum()
-
     # Вычисление суммы чисел
     def sum(self):
-        self.summa = self.first + self.second + self.third
-
-    # Вывод суммы на экран
-    def display(self):
-        print(f"Сумма чисел равна: {self.summa}")
+        return self.first + self.second + self.third
 
 
 # Создание нового класса
@@ -56,20 +50,15 @@ class Triangle(Triad):
         self.side_two = float(side_two)
         self.side_three = float(side_three)
 
-        #self.add()
-        #self.square()
-        #self.corner_one()
-
     # Вычисление периметра треугольника
     def per(self):
-        self.perimeter = self.side_one + self.side_two + self.side_three
-
+        return self.side_one + self.side_two + self.side_three
 
     # Вычисление площади треугольника по формуле Герона
     def square(self):
+        self.perimeter = self.side_one + self.side_two + self.side_three
         p = self.perimeter / 2
-        s = math.sqrt(p * (p - self.side_one) * (p - self.side_two) * (p - self.side_three))
-        print(f"Площадь треугольника равна: {s}")
+        return math.sqrt(p * (p - self.side_one) * (p - self.side_two) * (p - self.side_three))
 
     # Вычисление градусов углов в треугольнике
     def corner_one(self):
@@ -95,9 +84,12 @@ class Triangle(Triad):
 if __name__ == '__main__':
     r1 = Triad()
     r1.read()
-    r1.display()
+    print(r1.sum())
 
     r2 = Triangle()
     r2.read()
     r2.display()
+    print(r2.per())
+    print(r2.square())
+
 
