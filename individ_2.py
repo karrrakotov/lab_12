@@ -15,8 +15,6 @@ class Triad:
         self.second = float(second)
         self.third = float(third)
 
-        self.sum()
-
     # Ввод тройки чисел
     def read(self):
         first = input('Введите первое число: ')
@@ -39,6 +37,8 @@ class Triangle(Triad):
         self.side_one = float(side_one)
         self.side_two = float(side_two)
         self.side_three = float(side_three)
+        self.per()
+        self.__corner_one()
 
     # Ввод сторон треугольника
     def read(self):
@@ -52,33 +52,37 @@ class Triangle(Triad):
 
     # Вычисление периметра треугольника
     def per(self):
-        return self.side_one + self.side_two + self.side_three
+        self.perimeter = self.first + self.second + self.third
+        return self.perimeter
 
-    # Вычисление площади треугольника по формуле Герона
+    # Вычисление площади треугольника
     def square(self):
-        self.perimeter = self.side_one + self.side_two + self.side_three
         p = self.perimeter / 2
-        return math.sqrt(p * (p - self.side_one) * (p - self.side_two) * (p - self.side_three))
+        return math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))
 
     # Вычисление градусов углов в треугольнике
-    def corner_one(self):
+    def __corner_one(self):
         a = self.side_one
         b = self.side_two
         c = self.side_three
+
         first_corner = math.acos(((b ** 2) + (c ** 2) - (a ** 2)) / (2 * c * b))
-        self.first_degrees = math.degrees(first_corner)
+        self.f_d = math.degrees(first_corner)
 
         second_corner = math.acos(((a ** 2) + (b ** 2) - (c ** 2)) / (2 * a * b))
-        self.second_degrees = math.degrees(second_corner)
+        self.s_d = math.degrees(second_corner)
 
         third_corner = math.acos(((a ** 2) + (c ** 2) - (b ** 2)) / (2 * a * c))
-        self.third_degrees = math.degrees(third_corner)
+        self.th_d = math.degrees(third_corner)
 
-    # Вывод значений
-    def display(self):
-        print(f"Первый угол в треугольнике равен: {self.first_degrees}")
-        print(f"Второй угол в треугольнике равен: {self.second_degrees}")
-        print(f"Третий угол в треугольнике равен: {self.third_degrees}")
+        if self.f_d == 90 or self.s_d == 90 or self.th_d == 90:
+            return print("Треугольник прямоугольный")
+        elif self.f_d == self.s_d or self.f_d == self.th_d or self.s_d == self.th_d:
+            return print("Треугольник равнобедренный")
+        elif self.f_d == self.s_d == self.th_d:
+            return print("Треугольник равносторонний")
+        else:
+            return print("Обычный треугольник")
 
 
 if __name__ == '__main__':
@@ -88,8 +92,6 @@ if __name__ == '__main__':
 
     r2 = Triangle()
     r2.read()
-    r2.display()
-    print(r2.per())
     print(r2.square())
 
 
