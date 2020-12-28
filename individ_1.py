@@ -84,6 +84,3 @@ if __name__ == '__main__':
     print(r1.height_one())
     print(r1.height_two())
     print(r1.height_three())
-
-
-

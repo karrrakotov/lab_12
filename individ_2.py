@@ -92,5 +92,3 @@ if __name__ == '__main__':
     r2 = Triangle()
     r2.read()
     print(r2.square())
-
-
