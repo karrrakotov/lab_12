@@ -30,26 +30,25 @@ class Triangle:
 
     # Вычисление периметра треугольника
     def per(self):
-        self.perimeter = self.first + self.second + self.third
-        self.p = self.perimeter / 2
-        return self.perimeter
+        return self.first + self.second + self.third
 
     # Вычисление площади треугольника
     def square(self):
-        self.h = math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))
-        return self.h
+        self.perimeter = self.first + self.second + self.third
+        self.p = self.perimeter / 2
+        return math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))
 
     # Вычисление высоты проведенной к стороне A
     def height_one(self):
-        return 2 * self.h / self.first
+        return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.first
 
     # Вычисление высоты проведенной к стороне B
     def height_two(self):
-        return 2 * self.h / self.second
+        return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.second
 
     # Вычисление высоты проведенной к стороне C
     def height_three(self):
-        return 2 * self.h / self.third
+        return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.third
 
     # Вычисление градусов углов по формуле Герона
     def __corner_one(self):
@@ -78,11 +77,11 @@ class Triangle:
 if __name__ == '__main__':
     r1 = Triangle()
     r1.read()
-    print(f"Периметр треугольника равен: {r1.per()}")
-    print(f"Площадь треугольника равна: {r1.square()}")
-    print(f"Первая высота треугольника равна: {r1.height_one()}")
-    print(f"Вторая высота треугольника равна:{r1.height_two()}")
-    print(f"Третья высота треугольника равна:{r1.height_three()}")
+    print(r1.per())
+    print(r1.square())
+    print(r1.height_one())
+    print(r1.height_two())
+    print(r1.height_three())
 
 
 

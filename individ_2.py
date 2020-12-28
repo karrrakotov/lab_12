@@ -52,13 +52,12 @@ class Triangle(Triad):
 
     # Вычисление периметра треугольника
     def per(self):
-        self.perimeter = self.first + self.second + self.third
-        return self.perimeter
+        return self.first + self.second + self.third
 
     # Вычисление площади треугольника
     def square(self):
-        p = self.perimeter / 2
-        return math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))
+        self.perimeter = self.first + self.second + self.third
+        self.p = self.perimeter / 2
 
     # Вычисление градусов углов в треугольнике
     def __corner_one(self):
