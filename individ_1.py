@@ -40,14 +40,20 @@ class Triangle:
 
     # Вычисление высоты проведенной к стороне A
     def height_one(self):
+        self.perimeter = self.first + self.second + self.third
+        self.p = self.perimeter / 2
         return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.first
 
     # Вычисление высоты проведенной к стороне B
     def height_two(self):
+        self.perimeter = self.first + self.second + self.third
+        self.p = self.perimeter / 2
         return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.second
 
     # Вычисление высоты проведенной к стороне C
     def height_three(self):
+        self.perimeter = self.first + self.second + self.third
+        self.p = self.perimeter / 2
         return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.third
 
     # Вычисление градусов углов по формуле Герона
