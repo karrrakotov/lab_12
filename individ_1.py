@@ -34,23 +34,23 @@ class Triangle:
 
     # Вычисление площади треугольника
     def square(self):
-        self.p = (self.first + self.second + self.third) / 2
-        return math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))
+        p = (self.first + self.second + self.third) / 2
+        return math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))
 
     # Вычисление высоты проведенной к стороне A
     def height_one(self):
-        self.p = (self.first + self.second + self.third) / 2
-        return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.first
+        p = (self.first + self.second + self.third) / 2
+        return 2 * (math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))) / self.first
 
     # Вычисление высоты проведенной к стороне B
     def height_two(self):
-        self.p = (self.first + self.second + self.third) / 2
-        return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.second
+        p = (self.first + self.second + self.third) / 2
+        return 2 * (math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))) / self.second
 
     # Вычисление высоты проведенной к стороне C
     def height_three(self):
-        self.p = (self.first + self.second + self.third) / 2
-        return 2 * (math.sqrt(self.p * (self.p - self.first) * (self.p - self.second) * (self.p - self.third))) / self.third
+        p = (self.first + self.second + self.third) / 2
+        return 2 * (math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))) / self.third
 
     # Вычисление градусов углов по формуле Герона
     def __corner_one(self):
