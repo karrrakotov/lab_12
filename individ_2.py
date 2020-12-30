@@ -10,7 +10,7 @@ import math
 
 class Triad:
 
-    def __init__(self, first=0, second=0, third=0):
+    def __init__(self, first=1, second=1, third=1):
         self.first = float(first)
         self.second = float(second)
         self.third = float(third)
@@ -32,39 +32,25 @@ class Triad:
 
 # Создание нового класса
 class Triangle(Triad):
-    def __init__(self, side_one=0, side_two=0, side_three=0):
-        super(Triangle, self).__init__()
-        self.side_one = float(side_one)
-        self.side_two = float(side_two)
-        self.side_three = float(side_three)
-        self.per()
+    def __init__(self, first=1, second=1, third=1):
+        super(Triangle, self).__init__(first, second, third)
+
         self.__corner_one()
-
-    # Ввод сторон треугольника
-    def read(self):
-        side_one = input('Введите первую сторону треугольника: ')
-        side_two = input('Введите вторую сторону треугольника: ')
-        side_three = input('Введите третью сторону треугольника: ')
-
-        self.side_one = float(side_one)
-        self.side_two = float(side_two)
-        self.side_three = float(side_three)
 
     # Вычисление периметра треугольника
     def per(self):
-        return self.side_one + self.side_two + self.side_three
+        return self.first + self.second + self.third
 
     # Вычисление площади треугольника
     def square(self):
-        p = (self.side_one + self.side_two + self.side_three) / 2
-        return math.sqrt(p * (p - self.side_one) * (p - self.side_two) * (p - self.side_three))
+        p = self.per() / 2
+        return math.sqrt(p * (p - self.first) * (p - self.second) * (p - self.third))
 
     # Вычисление градусов углов в треугольнике
     def __corner_one(self):
-        a = self.side_one
-        b = self.side_two
-        c = self.side_three
-
+        a = self.first
+        b = self.second
+        c = self.third
         first_corner = math.acos(((b ** 2) + (c ** 2) - (a ** 2)) / (2 * c * b))
         self.f_d = math.degrees(first_corner)
 
@@ -74,6 +60,8 @@ class Triangle(Triad):
         third_corner = math.acos(((a ** 2) + (c ** 2) - (b ** 2)) / (2 * a * c))
         self.th_d = math.degrees(third_corner)
 
+    # Вывод углов
+    def degrees(self):
         if self.f_d == 90 or self.s_d == 90 or self.th_d == 90:
             return print("Треугольник прямоугольный")
         elif self.f_d == self.s_d or self.f_d == self.th_d or self.s_d == self.th_d:
@@ -92,3 +80,4 @@ if __name__ == '__main__':
     r2 = Triangle()
     r2.read()
     print(r2.square())
+    print(r2.degrees())
